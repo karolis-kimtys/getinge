@@ -13,10 +13,11 @@ export default class Form extends Component {
     this.onChangeDate = this.onChangeDate.bind(this);
     this.onChangeIssue = this.onChangeIssue.bind(this);
     this.onChangeInfo = this.onChangeInfo.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       name: '',
-      date: '',
+      date: new Date().toISOString().slice(0, 10),
       issue: '',
       info: '',
     };
@@ -47,16 +48,16 @@ export default class Form extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const issueSubmit = {
+
+    const issue = {
       name: this.state.name,
       date: this.state.date,
       issue: this.state.issue,
       info: this.state.info,
     };
 
-    // console.log('Issue is being submitted - ', issueSubmit);
     axios
-      .post('https://personal-mongo.herokuapp.com/issues/add', issueSubmit)
+      .post('https://personal-mongo.herokuapp.com/issues/add', issue)
       // .post("http://localhost:5000/trades/add", trade)
       .then((res) => console.log(res.data))
       .catch((err) => console.log('Error caught in promise - ' + err));
@@ -65,17 +66,16 @@ export default class Form extends Component {
   render() {
     return (
       <div className={styles.Container}>
-        <img src={logo} alt='getinge logo' />
+        <img src={logo} alt="getinge logo" />
 
         <form className={styles.Form} onSubmit={this.onSubmit}>
           <div className={styles.Inputs}>
-            <input type='hidden' name='contact_number' />
             <div className={styles.Name}>
               <input
                 className={styles.NameInput}
-                type='text'
+                type="text"
                 required
-                placeholder=' '
+                placeholder=" "
                 value={this.state.name}
                 onChange={this.onChangeName}
               />
@@ -85,9 +85,9 @@ export default class Form extends Component {
             <div className={styles.Name}>
               <input
                 className={styles.NameInput}
-                type='date'
+                type="date"
                 required
-                placeholder=' '
+                placeholder=" "
                 // value={new Date().toISOString().slice(0, 10)}
                 value={this.state.date}
                 onChange={this.onChangeDate}
@@ -102,10 +102,10 @@ export default class Form extends Component {
                 value={this.state.issue}
                 onChange={this.onChangeIssue}
               >
-                <option>Select an issue</option>
-                <option value='office'>Office</option>
-                <option value='edc'>EDC</option>
-                <option value='factory'>Factory</option>
+                <option value="Issue was not selected"></option>
+                <option value="Office">Office</option>
+                <option value="EDC">EDC</option>
+                <option value="Factory">Factory</option>
               </select>
               <label className={styles.NameLabel}>Issue: </label>
             </div>
@@ -130,7 +130,7 @@ export default class Form extends Component {
               padding: '30px',
             }}
           /> */}
-            <input type='submit' value='Submit' onChange={this.onSubmit} />
+            <input type="submit" value="Submit" />
           </div>
         </form>
       </div>
