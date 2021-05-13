@@ -3,7 +3,7 @@ import styles from './Form.module.scss';
 import logo from '../assets/logo.png';
 // import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
+// import axios from 'axios';
 
 const fetch = require('node-fetch');
 
