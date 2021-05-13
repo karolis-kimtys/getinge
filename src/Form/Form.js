@@ -61,6 +61,8 @@ export default class Form extends Component {
       // .post("http://localhost:5000/trades/add", trade)
       .then((res) => console.log(res.data))
       .catch((err) => console.log('Error caught in promise - ' + err));
+
+    window.location = '/';
   }
 
   render() {
