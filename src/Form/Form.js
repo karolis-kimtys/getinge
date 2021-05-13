@@ -66,7 +66,7 @@ export default class Form extends Component {
 
     fetch('https://personal-mongo.herokuapp.com/issues/add', {
       method: 'POST',
-      body: issue,
+      body: JSON.stringify(issue),
       headers: { 'Content-Type': 'application/json' },
     })
       .then((res) => res.json())
