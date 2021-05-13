@@ -15,7 +15,7 @@ export default function Table() {
   return (
     <div className={styles.Table}>
       <div className={styles.Button}>
-        <input type="submit" value="Load Data" onClick={loadData} />
+        <input type="submit" value="Load Data" onClick={loadData} id="submit" />
       </div>
 
       <table>
