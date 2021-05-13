@@ -108,8 +108,11 @@ export default class Form extends Component {
               <input
                 className={styles.NameInput}
                 type="text"
+                name="Name"
+                id="Name"
+                autoComplete="on"
                 required
-                autoFocus
+                // autoFocus
                 placeholder=" "
                 value={this.state.name}
                 onChange={this.onChangeName}
@@ -138,6 +141,8 @@ export default class Form extends Component {
                 onChange={this.onChangeIssue}
               >
                 <option value="Issue was not selected"></option>
+                <option value="2030Labs">2030 Labs</option>
+                <option value="Site">Site</option>
                 <option value="Office">Office</option>
                 <option value="EDC">EDC</option>
                 <option value="Factory">Factory</option>

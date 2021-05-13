@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Table.module.scss';
 import { motion } from 'framer-motion';
-import spinner from '../assets/spinner.svg';
 
 export default function Table() {
   const [items, setItems] = useState([]);
@@ -12,7 +11,9 @@ export default function Table() {
       .then((res) => res.json())
       .then((result) => {
         setItems(result);
-        setIsLoaded(true);
+        setTimeout(() => {
+          setIsLoaded(true);
+        }, 2000);
       });
   }, [isLoaded]);
 
@@ -22,19 +23,20 @@ export default function Table() {
         <input type="submit" value="Load Data" onClick={loadData} id="submit" />
       </div> */}
 
+      {isLoaded || (
+        <div className={styles.Spinner}>
+          <h6>Data loading... </h6>
+        </div>
+      )}
+
       <table>
-        {isLoaded ? (
+        {isLoaded && (
           <tr className={styles.Header}>
             <th>Name</th>
             <th>Date</th>
             <th>Issue</th>
             <th>Info</th>
           </tr>
-        ) : (
-          <div className={styles.Spinner}>
-            <img src={spinner} alt="loading" />
-            <h6>Data loading... </h6>
-          </div>
         )}
 
         {isLoaded &&
