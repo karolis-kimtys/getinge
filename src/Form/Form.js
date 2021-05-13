@@ -5,6 +5,8 @@ import logo from '../assets/logo.png';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
+const fetch = require('node-fetch');
+
 export default class Form extends Component {
   constructor(props) {
     super(props);
@@ -56,10 +58,19 @@ export default class Form extends Component {
       info: this.state.info,
     };
 
-    axios
-      .post('https://personal-mongo.herokuapp.com/issues/add', issue)
-      // .post("http://localhost:5000/trades/add", trade)
-      .then((res) => console.log(res.data))
+    // axios
+    //   .post('https://personal-mongo.herokuapp.com/issues/add', issue)
+    //   // .post("http://localhost:5000/trades/add", trade)
+    //   .then((res) => console.log(res.data))
+    //   .catch((err) => console.log('Error caught in promise - ' + err));
+
+    fetch('https://personal-mongo.herokuapp.com/issues/add', {
+      method: 'POST',
+      body: issue,
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then((res) => res.json())
+      .then((json) => console.log(json))
       .catch((err) => console.log('Error caught in promise - ' + err));
 
     window.location = '/';
