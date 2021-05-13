@@ -132,9 +132,9 @@ export default class Form extends Component {
               padding: '30px',
             }}
           /> */}
-            <button type="submit" value="Submit" id="submit">
+            {/* <button type="submit" value="Submit" id="submit">
               Submit
-            </button>
+            </button> */}
             <input type="submit" value="Submit" id="submit"></input>
           </div>
         </form>
