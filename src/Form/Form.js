@@ -73,7 +73,7 @@ export default class Form extends Component {
       .then((json) => console.log(json))
       .catch((err) => console.log('Error caught in promise - ' + err));
 
-    window.location = '/';
+    // window.location = '/';
   }
 
   render() {
