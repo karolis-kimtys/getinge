@@ -70,7 +70,11 @@ export default class Form extends Component {
       <div className={styles.Container}>
         <img src={logo} alt="getinge logo" />
 
-        <form className={styles.Form} onSubmit={this.onSubmit}>
+        <form
+          className={styles.Form}
+          onSubmit={this.onSubmit}
+          onTouchStart={this.onSubmit}
+        >
           <div className={styles.Inputs}>
             <div className={styles.Name}>
               <input
