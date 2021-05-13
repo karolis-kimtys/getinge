@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import styles from './Form.module.scss';
 import logo from '../assets/logo.png';
-// import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-// import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
+
+import Table from '../Table/Table';
 
 const fetch = require('node-fetch');
 
@@ -69,16 +69,37 @@ export default class Form extends Component {
       body: JSON.stringify(issue),
       headers: { 'Content-Type': 'application/json' },
     })
-      .then((res) => res.json())
-      .then((json) => console.log(json))
+      // .then((res) => res.json())
+      .then((res) => {
+        if (res.ok) {
+          toast.success('Saved!');
+          console.log('Issue created.');
+          setTimeout(() => {
+            window.location = '/';
+          }, 2000);
+          return res.json();
+        } else {
+          // Find some way to get to execute .catch()
+          toast.error('Error!');
+        }
+      })
       .catch((err) => console.log('Error caught in promise - ' + err));
-
-    // window.location = '/';
   }
 
   render() {
     return (
       <div className={styles.Container}>
+        <div>
+          <Toaster
+            toastOptions={{
+              style: {
+                marginTop: '150px',
+                backgroundColor: '#18274a',
+                color: 'white',
+              },
+            }}
+          />
+        </div>
         <img src={logo} alt="getinge logo" />
 
         <form className={styles.Form} onSubmit={this.onSubmit}>
@@ -88,6 +109,7 @@ export default class Form extends Component {
                 className={styles.NameInput}
                 type="text"
                 required
+                autoFocus
                 placeholder=" "
                 value={this.state.name}
                 onChange={this.onChangeName}
@@ -134,21 +156,10 @@ export default class Form extends Component {
             </div>
           </div>
           <div className={styles.Button}>
-            {/* <ToastContainer
-            bodyClassName='toastBody'
-            className={styles.Toast}
-            style={{
-              width: '200px',
-              fontSize: '14px',
-              padding: '30px',
-            }}
-          /> */}
-            {/* <button type="submit" value="Submit" id="submit">
-              Submit
-            </button> */}
             <input type="submit" value="Submit" id="submit"></input>
           </div>
         </form>
+        <Table />
       </div>
     );
   }

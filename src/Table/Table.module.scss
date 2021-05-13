@@ -3,19 +3,19 @@
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  width: 500px;
-  height: 100vh;
-  background-color: #e9e4e3;
-  margin: 20px;
-  box-shadow: 0 20px 25px hsla(0, 0%, 92.5%, 0.1),
-    0 16px 26px hsla(0, 0%, 92.5%, 0.1);
-  border-top: 2px solid #f39200;
-  border-bottom: 2px solid #f39200;
-  border-radius: 3px;
+
+  height: 100%;
 }
 
-.TableButton {
-  margin: 25px;
+.Spinner img {
+  width: 50px;
+}
+
+tr {
+  border-top: 1px solid;
+}
+.Header th {
+  font-size: 1.2rem;
 }
 
 tr,
@@ -23,10 +23,10 @@ th,
 td {
   padding: 5px;
   border-collapse: collapse;
+  font-size: 1rem;
 }
 
 table {
-  font-size: 1.2rem;
   border-collapse: collapse;
   display: block;
   overflow-y: auto;
@@ -61,14 +61,18 @@ table {
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
-  .Table {
-    width: 95vw;
-    height: 95vh;
-  }
   table {
-    font-size: 0.8rem;
+    width: 95vw;
   }
   .Button input {
     -webkit-appearance: none;
+  }
+
+  tr,
+  th,
+  td {
+    padding: 5px;
+    border-collapse: collapse;
+    font-size: 0.7rem;
   }
 }
