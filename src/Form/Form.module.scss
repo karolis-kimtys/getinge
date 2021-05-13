@@ -138,7 +138,7 @@ select:focus:invalid {
   justify-content: center;
 }
 
-.Button input {
+.Button button {
   margin-bottom: 50px;
   border-radius: 3px;
   width: 100px;
@@ -152,7 +152,7 @@ select:focus:invalid {
   border: 1px solid #f39200;
 }
 
-.Button input:hover {
+.Button button:hover {
   cursor: pointer;
   color: #18274a;
   background-color: #f39200;
@@ -184,7 +184,7 @@ select:focus:invalid {
     width: 100vw;
   }
 
-  .Button input {
+  .Button button {
     -webkit-appearance: none;
   }
 }
