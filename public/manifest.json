@@ -1,6 +1,6 @@
 {
   "short_name": "Getinge Report",
-  "name": "Report any issues you come across.",
+  "name": "Report an issue here",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,14 +8,14 @@
       "type": "image/x-icon"
     },
     {
-      "src": "favicon.ico",
-      "type": "image/x-icon",
-      "sizes": "64x64 32x32 24x24 16x16"
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
     },
     {
-      "src": "favicon.ico",
-      "type": "image/x-icon",
-      "sizes": "64x64 32x32 24x24 16x16"
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
   "start_url": ".",
