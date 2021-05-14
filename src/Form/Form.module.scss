@@ -18,9 +18,8 @@ form {
   min-height: 35vh;
 }
 
-img {
+.Logo {
   width: 350px;
-
   padding: 25px;
 }
 
@@ -138,17 +137,41 @@ select:focus:invalid {
   box-shadow: none;
 }
 
+select::-ms-expand {
+  display: none;
+  -webkit-appearance: none;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
+.Refresh {
+  width: 30px;
+  height: 30px;
+}
+
 .Button {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  -webkit-appearance: none;
+  margin-top: 25px;
+  margin-bottom: 35px;
 }
 
 .Button button,
 .Button input {
-  margin-bottom: 50px;
+  text-align: center;
+  // margin-left: 5px;
+  // margin-bottom: 25px;
   border-radius: 3px;
-  width: 100px;
-  height: 30px;
+  width: 125px;
+  height: 40px;
   font-size: 1rem;
   color: #f39200;
   font-weight: 900;
@@ -175,8 +198,8 @@ select:focus:invalid {
   form {
     font-size: 2.3rem;
   }
-  img {
-    width: 75vw;
+  .Logo {
+    width: 80vw;
     padding: 25px;
   }
 

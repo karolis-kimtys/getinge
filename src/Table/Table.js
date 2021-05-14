@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Table.module.scss';
 import { motion } from 'framer-motion';
+import Sync from '../assets/refresh.svg';
 
 export default function Table() {
   const [items, setItems] = useState([]);
@@ -24,8 +25,17 @@ export default function Table() {
       </div> */}
 
       {isLoaded || (
-        <div className={styles.Spinner}>
-          <h6>Data loading... </h6>
+        <div className={styles.Loader}>
+          {/* <h6>Data loading... </h6> */}
+
+          <img
+            onClick={() => {
+              window.location = '/';
+            }}
+            src={Sync}
+            alt="refresh button"
+            className={styles.Refresh}
+          />
         </div>
       )}
 
@@ -35,7 +45,7 @@ export default function Table() {
             <th>Name</th>
             <th>Date</th>
             <th>Issue</th>
-            <th>Info</th>
+            <th className={styles.Cell}>Info</th>
           </tr>
         )}
 
@@ -60,6 +70,16 @@ export default function Table() {
             );
           })}
       </table>
+      {isLoaded && (
+        <img
+          onClick={() => {
+            window.location = '/';
+          }}
+          src={Sync}
+          alt="refresh button"
+          className={styles.Refresh}
+        />
+      )}
     </div>
   );
 }

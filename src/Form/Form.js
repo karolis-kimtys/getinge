@@ -4,7 +4,6 @@ import logo from '../assets/logo.png';
 import toast, { Toaster } from 'react-hot-toast';
 
 import Table from '../Table/Table';
-
 const fetch = require('node-fetch');
 
 export default class Form extends Component {
@@ -46,6 +45,11 @@ export default class Form extends Component {
     this.setState({
       info: e.target.value,
     });
+  }
+
+  onRefresh(e) {
+    e.preventDefault();
+    window.location = '/';
   }
 
   onSubmit(e) {
@@ -100,7 +104,7 @@ export default class Form extends Component {
             }}
           />
         </div>
-        <img src={logo} alt="getinge logo" />
+        <img src={logo} alt="getinge logo" className={styles.Logo} />
 
         <form className={styles.Form} onSubmit={this.onSubmit}>
           <div className={styles.Inputs}>
@@ -140,8 +144,8 @@ export default class Form extends Component {
                 value={this.state.issue}
                 onChange={this.onChangeIssue}
               >
-                <option value="Issue was not selected"></option>
-                <option value="2030Labs">2030 Labs</option>
+                <option value="Select">Select an issue</option>
+                <option value="Labs">Labs</option>
                 <option value="Site">Site</option>
                 <option value="Office">Office</option>
                 <option value="EDC">EDC</option>
@@ -161,7 +165,9 @@ export default class Form extends Component {
             </div>
           </div>
           <div className={styles.Button}>
-            <input type="submit" value="Submit" id="submit"></input>
+            <button type="submit" value="Submit" id="submit">
+              Submit
+            </button>
           </div>
         </form>
         <Table />

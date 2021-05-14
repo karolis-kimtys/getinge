@@ -3,12 +3,11 @@
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-
   height: 100%;
 }
 
-.Spinner img {
-  width: 50px;
+.Header {
+  color: #18274a;
 }
 
 tr {
@@ -58,6 +57,26 @@ table {
   color: #18274a;
   background-color: #f39200;
   transition: all 0.5s ease;
+}
+
+.Loader img {
+  animation: rotate 1.5s linear infinite;
+}
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.Refresh {
+  width: 35px;
+  height: 35px;
+  transition: transform 0.7s ease-in-out;
+  margin: 10px;
+}
+
+.Refresh:hover {
+  transform: rotate(360deg);
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
