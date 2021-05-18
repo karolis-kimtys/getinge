@@ -41,32 +41,35 @@ export default function Table() {
 
       <table>
         {isLoaded && (
-          <tr className={styles.Header}>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Issue</th>
-            <th className={styles.Cell}>Info</th>
-          </tr>
+          <thead>
+            <tr className={styles.Header}>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Issue</th>
+              <th className={styles.Cell}>Info</th>
+            </tr>
+          </thead>
         )}
 
         {isLoaded &&
           Object.values(items).map((item, key) => {
             return (
-              <motion.tr
-                key={key}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  ease: 'easeOut',
-                  duration: 2,
-                  delay: key / 15,
-                }}
-              >
-                <td>{item.name}</td>
-                <td>{item.date}</td>
-                <td>{item.issue}</td>
-                <td>{item.info}</td>
-              </motion.tr>
+              <tbody key={key}>
+                <motion.tr
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{
+                    ease: 'easeIn',
+                    duration: 1,
+                    delay: 0.1 * key,
+                  }}
+                >
+                  <td>{item.name}</td>
+                  <td>{item.date}</td>
+                  <td>{item.issue}</td>
+                  <td>{item.info}</td>
+                </motion.tr>
+              </tbody>
             );
           })}
       </table>
