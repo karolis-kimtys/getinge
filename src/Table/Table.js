@@ -8,7 +8,7 @@ export default function Table() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    fetch(`https://personal-mongo.herokuapp.com/issues/`)
+    fetch(``)
       .then((res) => res.json())
       .then((result) => {
         setItems(result);
@@ -62,8 +62,7 @@ export default function Table() {
                     ease: 'easeIn',
                     duration: 1,
                     delay: 0.1 * key,
-                  }}
-                >
+                  }}>
                   <td>{item.name}</td>
                   <td>{item.date}</td>
                   <td>{item.issue}</td>
